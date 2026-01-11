@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crumbistry - Fresh Cakes & Pastries</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,700;9..144,900&family=Quicksand:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <div id="app" class="app-container">
+    <!-- Desktop Navbar -->
+    <nav class="navbar">
+      <div class="navbar-inner">
+        <button class="logo" onclick="changeView('home')">Crumbistry<span class="accent">.</span></button>
+        <div class="nav-links">
+          <button class="nav-link active" data-view="home" onclick="changeView('home')">home</button>
+          <button class="nav-link" data-view="shop" onclick="changeView('shop')">shop</button>
+          <button class="nav-link" data-view="custom" onclick="changeView('custom')">custom</button>
+          <button class="nav-link" data-view="about" onclick="changeView('about')">about</button>
+        </div>
+        <div class="nav-actions">
+          <button class="search-btn" onclick="toggleSearch()"><svg class="icon" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="3">
+              <circle cx="11" cy="11" r="8" />
+              <path d="m21 21-4.35-4.35" />
+            </svg></button>
+          <button class="cart-btn" onclick="toggleCart()">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z" />
+              <path d="M3 6h18" />
+              <path d="M16 10a4 4 0 0 1-8 0" />
+            </svg>
+            <span class="cart-count" id="cartCount">0</span>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main id="mainContent"></main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-inner">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <h3 class="footer-logo">Crumbistry<span class="accent">.</span></h3>
+            <p>Making the world a sweeter place, one cupcake at a time. Come visit us or order online!</p>
+          </div>
+          <div class="footer-col">
+            <h4>Treats</h4>
+            <ul>
+              <li>Cakes</li>
+              <li>Cupcakes</li>
+              <li>Pastries</li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Help</h4>
+            <ul>
+              <li>FAQ</li>
+              <li>Shipping</li>
+              <li>Contact</li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Social</h4>
+            <ul>
+              <li>Instagram</li>
+              <li>Facebook</li>
+              <li>Twitter</li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>© 2024 Crumbistry Inc. Baked with code.</p>
+          <p>Sweet Dreams.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Mobile Bottom Nav -->
+    <div class="mobile-nav">
+      <button class="mobile-nav-item active" data-view="home" onclick="changeView('home')">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+          <polyline points="9 22 9 12 15 12 15 22" />
+        </svg>
+        <span>Home</span>
+      </button>
+      <button class="mobile-nav-item" data-view="shop" onclick="changeView('shop')">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="m2 7 4.41-4.41A2 2 0 0 1 7.83 2h8.34a2 2 0 0 1 1.42.59L22 7" />
+          <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8" />
+          <path d="M15 22v-4a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v4" />
+          <path d="M2 7h20" />
+          <path
+            d="M22 7v3a2 2 0 0 1-2 2a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 16 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 12 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 8 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 4 12a2 2 0 0 1-2-2V7" />
+        </svg>
+        <span>Menu</span>
+      </button>
+      <button class="mobile-nav-center" onclick="window.open('https://wa.me/', '_blank')">
+        <svg class="icon" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2">
+          <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z" />
+        </svg>
+      </button>
+      <button class="mobile-nav-item" data-view="custom" onclick="changeView('custom')">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polygon
+            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+        </svg>
+        <span>Custom</span>
+      </button>
+      <button class="mobile-nav-item" onclick="toggleCart()">
+        <div class="mobile-cart-icon">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z" />
+            <path d="M3 6h18" />
+            <path d="M16 10a4 4 0 0 1-8 0" />
+          </svg>
+          <span class="mobile-cart-count" id="mobileCartCount">0</span>
+        </div>
+        <span>Box</span>
+      </button>
+    </div>
+
+    <!-- Search Modal -->
+    <div class="search-overlay" id="searchOverlay" onclick="toggleSearch()"></div>
+    <div class="search-modal" id="searchModal">
+      <div class="search-header">
+        <div class="search-input-wrapper">
+          <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <circle cx="11" cy="11" r="8" />
+            <path d="m21 21-4.35-4.35" />
+          </svg>
+          <input type="text" class="search-input" id="searchInput" placeholder="Search cakes, cupcakes, pastries..."
+            oninput="handleSearchInput(this.value)" autocomplete="off">
+          <button class="search-clear" id="searchClear" onclick="clearSearch()">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+              <path d="M18 6 6 18" />
+              <path d="m6 6 12 12" />
+            </svg>
+          </button>
+        </div>
+        <button class="search-close-btn" onclick="toggleSearch()">Cancel</button>
+      </div>
+      <div class="search-suggestions" id="searchSuggestions"></div>
+    </div>
+
+    <!-- Cart Drawer -->
+    <div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+    <div class="cart-drawer" id="cartDrawer">
+      <div class="cart-header">
+        <h2>Your Box 🎁</h2>
+        <button class="cart-close" onclick="toggleCart()">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+            <path d="M18 6 6 18" />
+            <path d="m6 6 12 12" />
+          </svg>
+        </button>
+      </div>
+      <div class="cart-items" id="cartItems"></div>
+      <div class="cart-footer" id="cartFooter"></div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+
+</html>
